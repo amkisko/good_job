@@ -32,6 +32,9 @@ class CreateGoodJobs < ActiveRecord::Migration<%= migration_version %>
       t.text :labels, array: true
       t.uuid :locked_by_id
       t.datetime :locked_at
+
+      t.string :audit_user_id
+      t.string :audit_user_type
     end
 
     create_table :good_job_batches, id: :uuid do |t|

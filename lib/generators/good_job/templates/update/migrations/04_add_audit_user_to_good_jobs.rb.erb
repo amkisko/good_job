@@ -1,0 +1,16 @@
+class AddJobsFinishedAtToGoodJobBatches < ActiveRecord::Migration<%= migration_version %>
+  def change
+    reversible do |dir|
+      dir.up do
+        # Ensure this incremental update migration is idempotent
+        # with monolithic install migration.
+        return if connection.column_exists?(:good_jobs, :audit_user_id)
+      end
+    end
+
+    change_table :good_jobs do |t|
+      t.string :audit_user_id
+      t.string :audit_user_type
+    end
+  end
+end
