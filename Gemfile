@@ -25,7 +25,7 @@ rails_versions = {
   "8.1" => "~> 8.1.0",
   "head" => { github: "rails/rails", branch: "main" },
 }
-gem 'rails', rails_versions[ENV.fetch("RAILS_VERSION", "8.1")]
+gem 'rails', '8.1.2', rails_versions[ENV.fetch("RAILS_VERSION"
 
 # Ruby 4.0 has moved this gem to a bundled gem. Rails 6.1 doesn't declare it.
 install_if -> { ENV["RAILS_VERSION"] == "6.1" } do
